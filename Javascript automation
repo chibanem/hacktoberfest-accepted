@@ -1,1 +1,12 @@
-new edition
+Puppeteer (Aka Headless Chrome Browser for Automation) :
+Puppeteer is a Node.js library that offers a simple but efficient API that enables you to control Google’s Chrome or Chromium browser.
+It also enables you to run Chromium in headless mode (useful for running browsers in servers) and can send and receive requests without the need for a user interface.
+The great thing is that it works in the background, performing actions as instructed by the API.
+Features:
+Click elements such as buttons, links, and images
+Automate form submissions
+Navigate pages
+Take a timeline trace to find out where the issues are in a website
+Carry out automated testing for user interfaces and various front-end apps, directly in a browser
+Take screenshots
+Convert web pages to pdf files
