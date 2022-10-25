@@ -1,0 +1,55 @@
+Cheerio (Aka Parser) :
+Cheerio provides fast, flexible, and lean implementation of core jQuery designed specifically for the server.
+Cheerio parses markup and provides an API for traversing/manipulating the resulting data structure.
+Features:
+Familiar syntax: Cheerio implements a subset of core jQuery. It removes all the DOM inconsistencies and browser cruft from the jQuery library, revealing its truly gorgeous API.
+Lightening Quick: Cheerio works with a very simple, consistent DOM model. As a result, parsing, manipulating, and rendering are incredibly efficient. Preliminary end-to-end benchmarks suggest that cheerio is about 8x faster than JSDOM.
+Stunningly flexible: Cheerio can parse nearly any HTML or XML
+
+There are many real business examples for which web scraping is being currently used by businesses. And this is a note about Web Scrapping by Cheerio in Node.js.
+
+Load html
+var request = require('request');var cheerio = require('cheerio');request('http://www.google.com/', function(err, resp, html) {        if (!err){          const $ = cheerio.load(html);          console.log(html);
+Selectors
+Example html content:
+
+<ul id="fruits"><li class="apple">Apple</li><li class="orange">Orange</li><li class="pear">Pear</li></ul>
+
+$('.apple', '#fruits').text()//=> Apple
+
+$('ul .pear').attr('class')//=> pear
+
+$('li[class=orange]').html()//=> <li class = "orange">Orange</li>
+
+Traversing
+find(selector)
+Get a set of descendants filtered by selector of each element in the current set of matched elements.
+
+$('#fruits').find('li').length//=> 3
+
+.parent()
+Gets the parent of the first selected element.
+
+$('.pear').parent().attr('id')//=> fruits
+
+.next()
+Gets the next sibling of the first selected element.
+
+$('.apple').next().hasClass('orange')//=> true
+
+.prev()
+Gets the previous sibling of the first selected element.
+
+$('.orange').prev().hasClass('apple')//=> true
+
+.siblings()
+Gets the first selected element’s siblings, excluding itself.
+
+$('.pear').siblings().length//=> 2
+
+.children( selector )
+Gets the children of the first selected element.
+
+$('#fruits').children().length//=> 3
+
+$('#fruits').children('.pear').text()//=> Pear
